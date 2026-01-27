@@ -1,0 +1,105 @@
+/* Reset et typographie */
+body {
+  font-family:'Poppins',sans-serif;
+  margin:0;
+  min-height: 100vh;      /* pour forcer le body à prendre toute la hauteur */
+  display: flex;
+  flex-direction: column; /* permet footer en bas */
+  background: linear-gradient(135deg,#0b1c2d,#123c5a);
+  color:#eaeaea;
+}
+
+/* NAVIGATION */
+nav {
+  position: fixed;
+  top:0;
+  width:100%;
+  background: rgba(11,28,45,0.95);
+  z-index:100;
+  padding:10px 20px;
+}
+.nav-container {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1200px;
+  margin:auto;
+}
+.menu {
+  display:flex;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.menu li { margin:0 15px; }
+.menu a {
+  color:#eaeaea;
+  text-decoration:none;
+  font-weight:500;
+  transition:color 0.3s;
+}
+.menu a:hover { color:#d4af37; }
+
+/* LOGO */
+.logo { width:80px; }
+@keyframes rotateLogo { from{transform:rotate(-5deg);} to{transform:rotate(5deg);} }
+
+/* HERO */
+.hero {
+  text-align:center;
+  padding:150px 20px 50px;
+}
+.hero h1 { font-size:3rem; color:#ffd700; animation:fadeIn 1.5s ease;}
+.hero p { font-size:1.2rem; margin:15px 0; animation:fadeIn 2s ease; }
+
+/* SECTION CARDS */
+.cards {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+  margin-top:30px;
+}
+.cards .card {
+  background:#123c5a;
+  padding:20px;
+  border-radius:15px;
+  width:220px;
+  text-align:center;
+  font-weight:600;
+  transition: transform 0.3s;
+}
+.cards .card:hover {
+  transform:translateY(-10px);
+  box-shadow:0 10px 30px rgba(212,175,55,0.3);
+}
+
+/* TITRES */
+section h2 { text-align:center; margin-bottom:20px; color:#ffd700; }
+
+/* BOUTON CENTRÉ */
+.cta .btn-gold {
+  display:inline-block;
+  margin: 0 auto;       /* centre horizontalement */
+  padding:14px 35px;
+  background:linear-gradient(135deg,#d4af37,#ffd700);
+  color:#0b1c2d;
+  border-radius:30px;
+  font-weight:600;
+  text-decoration:none;
+  transition: transform 0.3s;
+}
+.cta .btn-gold:hover {
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(212,175,55,0.4);
+}
+
+/* FOOTER FIXÉ EN BAS */
+footer {
+  text-align:center;
+  padding:30px 20px;
+  background:#081522;
+  margin-top:auto;  /* pousse le footer en bas */
+}
+
+@keyframes fadeIn { from {opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }

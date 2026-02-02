@@ -1,56 +1,86 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>TS Services Numériques – LH | Accueil</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/index.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>TS Services Numériques – Agence IT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Agence informatique au Havre : développement web, maintenance, dépannage et solutions numériques professionnelles.">
+
+  <link rel="stylesheet" href="css/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
 <header>
-<nav>
-<div class="nav-container">
-  <img src="logo.png" class="logo" alt="TS Logo">
-  <ul class="menu">
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="particuliers.html">Particuliers</a></li>
-    <li><a href="professionnels.html">Professionnels</a></li>
-    <li><a href="pourquoi.html">Pourquoi nous</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</div>
-</nav>
+  <nav>
+    <div class="nav-container">
 
-<div class="hero">
-  <h1>TS Services Numériques – LH</h1>
-  <p>Votre informatique entre de bonnes mains au Havre</p>
-</div>
+      <img src="logo.png" alt="TS Services Numériques" class="logo" loading="lazy">
+
+      <button class="burger" aria-label="Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="particuliers.html">Particuliers</a></li>
+        <li><a href="professionnels.html">Professionnels</a></li>
+        <li><a href="pourquoi.html">Pourquoi nous</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Agence informatique & solutions numériques</h1>
+    <p>Développement web, maintenance et expertise IT au Havre</p>
+  </section>
 </header>
 
 <main>
-<section class="intro">
-<h2>Nos services</h2>
-<div class="cards">
-  <div class="card">Dépannage informatique</div>
-  <div class="card">Création de site web</div>
-  <div class="card">Assistance numérique</div>
-  <div class="card">Maintenance</div>
-</div>
-</section>
 
-<div class="btn-container">
-  <a href="contact.html" class="btn-gold">Commander un service</a>
-</div>
+  <section class="services" aria-labelledby="services-title">
+    <h2 id="services-title">Nos expertises</h2>
+
+    <div class="cards">
+      <article class="card">Dépannage informatique</article>
+      <article class="card">Création de sites web</article>
+      <article class="card">Maintenance & sécurité</article>
+      <article class="card">Assistance numérique</article>
+    </div>
+  </section>
+
+  <div class="btn-container">
+    <a href="contact.html" class="btn-gold">Commander un service</a>
+  </div>
 
 </main>
 
 <footer>
-<p>📍 Le Havre</p>
-<p>📧 ts.services.numeriques@gmail.com</p>
+  <p>📍 Le Havre</p>
+  <p>📧 contact@ts-services-numeriques.fr</p>
 </footer>
+
+<script>
+  const burger = document.querySelector('.burger');
+  const menu = document.querySelector('.menu');
+
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    menu.classList.toggle('open');
+
+    burger.setAttribute(
+      'aria-expanded',
+      burger.classList.contains('active')
+    );
+  });
+</script>
 
 </body>
 </html>
+
 

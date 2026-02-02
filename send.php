@@ -1,18 +1,26 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    header("Location: contact.html");
+    exit;
+}
 
-    $nom = htmlspecialchars($_POST["nom"]);
-    $email = htmlspecialchars($_POST["email"]);
-    $service = htmlspecialchars($_POST["service"]);
-    $details = htmlspecialchars($_POST["details"]);
+// Sécurisation des données
+$nom = trim(htmlspecialchars($_POST["nom"] ?? ""));
+$email = filter_var($_POST["email"] ?? "", FILTER_VALIDATE_EMAIL);
+$service = trim(htmlspecialchars($_POST["service"] ?? ""));
+$details = trim(htmlspecialchars($_POST["details"] ?? ""));
 
-    $to = "ts.services.numeriques@gmail.com";
-    $subject = "Nouvelle demande de service - " . $service;
+if (!$nom || !$email || !$service || !$details) {
+    die("Formulaire incomplet.");
+}
 
-    $message = "
+$to = "ts.services.numeriques@gmail.com";
+$subject = "Nouvelle demande – $service";
+
+$message = <<<MAIL
 Bonjour,
 
-Une nouvelle demande a été envoyée via le site.
+Une nouvelle demande de service a été envoyée via le site TS Services Numériques.
 
 Nom : $nom
 Email : $email
@@ -21,14 +29,19 @@ Service demandé : $service
 Détails de la demande :
 $details
 
-Cordialement,
-$nom
-";
+---
+Message envoyé depuis le formulaire de contact
+MAIL;
 
-    $headers = "From: $email\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8";
+$headers = [
+    "From: TS Services Numériques <no-reply@ts-services-numeriques.fr>",
+    "Reply-To: $email",
+    "Content-Type: text/plain; charset=UTF-8"
+];
 
-    mail($to, $subject, $message, $headers);
-}
-?>
+mail($to, $subject, $message, implode("\r\n", $headers));
+
+// Redirection après envoi
+header("Location: merci.html");
+exit;
+

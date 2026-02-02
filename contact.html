@@ -2,63 +2,102 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>TS Services Numériques – LH | Contact</title>
+<title>TS Services Numériques – Contact</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/contact.css">
+<meta name="description" content="Contactez TS Services Numériques au Havre pour vos besoins informatiques et numériques.">
+<link rel="stylesheet" href="css/index.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
 <nav>
-<div class="nav-container">
-  <img src="logo.png" class="logo" alt="TS Logo">
-  <ul class="menu">
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="particuliers.html">Particuliers</a></li>
-    <li><a href="professionnels.html">Professionnels</a></li>
-    <li><a href="pourquoi.html">Pourquoi nous</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</div>
+  <div class="nav-container">
+    <img src="logo.png" alt="TS Services Numériques" class="logo" loading="lazy">
+
+    <!-- bouton burger -->
+    <button class="burger" aria-label="Menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="particuliers.html">Particuliers</a></li>
+      <li><a href="professionnels.html">Professionnels</a></li>
+      <li><a href="pourquoi.html">Pourquoi nous</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
-<div class="hero">
-  <h1>TS Services Numériques – LH</h1>
+<section class="hero">
+  <h1>Contactez TS Services Numériques</h1>
   <p>Votre informatique entre de bonnes mains au Havre</p>
-</div>
+</section>
 </header>
 
 <main>
-<section class="form-section">
-<h2>Commande d’un service</h2>
-<form action="mailto:ts.services.numeriques@gmail.com" method="post" enctype="text/plain">
-  <input type="text" name="nom" placeholder="Votre nom" required>
-  <input type="email" name="email" placeholder="Votre email" required>
-  <select name="service" required>
-    <option value="">Choisissez un service</option>
-    <option value="Depannage PC">Dépannage PC</option>
-    <option value="Installation Windows">Installation Windows</option>
-    <option value="Site Web">Création Site Web</option>
-    <option value="Support Pro">Support Pro</option>
-  </select>
-  <textarea name="details" rows="5" placeholder="Détails supplémentaires" required></textarea>
-  <input type="submit" value="Envoyer ma demande" class="btn-order">
-</form>
+<section class="form-section" aria-labelledby="contact-title">
+  <h2 id="contact-title">Commande d’un service</h2>
+  <form action="mailto:tonemail@example.com" method="post" enctype="text/plain">
+    <input type="text" name="nom" placeholder="Votre nom" required>
+    <input type="email" name="email" placeholder="Votre email" required>
+    <select name="service" required>
+      <option value="">Choisissez un service</option>
+      <option value="Depannage PC">Dépannage PC</option>
+      <option value="Installation Windows">Installation Windows</option>
+      <option value="Site Web">Création Site Web</option>
+      <option value="Support Pro">Support Pro</option>
+    </select>
+    <textarea name="details" rows="5" placeholder="Détails supplémentaires" required></textarea>
+    <input type="submit" value="Envoyer ma demande" class="btn-gold">
+  </form>
 </section>
 
-<section class="map-section">
-<h2>Zone d’intervention</h2>
-<p style="text-align:center;">Le Havre, Harfleur, Montivilliers, Gonfreville-l’Orcher, Sainte-Adresse</p>
+<section class="map-section" aria-labelledby="zone-title">
+  <h2 id="zone-title">Zone d’intervention</h2>
+  <p style="text-align:center;">Le Havre, Harfleur, Montivilliers, Gonfreville-l’Orcher, Sainte-Adresse</p>
 </section>
 </main>
 
 <footer>
-<p>📍 Le Havre</p>
-<p>📧 ts.services.numeriques@gmail.com</p>
+  <p>📍 Le Havre</p>
+  <p>📧 contact@ts-services-numeriques.fr</p>
 </footer>
+
+<script>
+/* ==================== MENU BURGER ==================== */
+const burger = document.querySelector('.burger');
+const menu = document.querySelector('.menu');
+const menuLinks = document.querySelectorAll('.menu a');
+
+burger.addEventListener('click', () => {
+  burger.classList.toggle('active');
+  menu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', burger.classList.contains('active'));
+});
+
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if(menu.classList.contains('open')){
+      menu.classList.remove('open');
+      burger.classList.remove('active');
+      burger.setAttribute('aria-expanded', false);
+    }
+  });
+});
+
+/* ==================== HAUTEUR MOBILE ==================== */
+function setViewportHeight() {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+setViewportHeight();
+window.addEventListener('resize', setViewportHeight);
+</script>
 
 </body>
 </html>
-
-
-

@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>TS Services Numériques – Agence IT</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Agence informatique au Havre : développement web, maintenance, dépannage et solutions numériques professionnelles.">
+<meta charset="UTF-8">
+<title>TS Services Numériques – Agence IT</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Agence informatique au Havre : développement web, maintenance, dépannage et solutions numériques professionnelles.">
 
-  <link rel="stylesheet" href="css/index.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/index.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 <header>
-  <nav>
-    <div class="nav-container">
+<nav>
+  <div class="nav-container">
 
-      <img src="logo.png" alt="TS Services Numériques" class="logo" loading="lazy">
+    <img src="logo.png" alt="TS Services Numériques" class="logo" loading="lazy">
 
-      <button class="burger" aria-label="Menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+    <!-- bouton burger -->
+    <button class="burger" aria-label="Menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-      <ul class="menu">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="particuliers.html">Particuliers</a></li>
-        <li><a href="professionnels.html">Professionnels</a></li>
-        <li><a href="pourquoi.html">Pourquoi nous</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+    <ul class="menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="particuliers.html">Particuliers</a></li>
+      <li><a href="professionnels.html">Professionnels</a></li>
+      <li><a href="pourquoi.html">Pourquoi nous</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
 
-    </div>
-  </nav>
+  </div>
+</nav>
 
-  <section class="hero">
-    <h1>Agence informatique & solutions numériques</h1>
-    <p>Développement web, maintenance et expertise IT au Havre</p>
-  </section>
+<section class="hero">
+  <h1>Agence informatique & solutions numériques</h1>
+  <p>Développement web, maintenance et expertise IT au Havre</p>
+</section>
 </header>
 
 <main>
@@ -66,21 +67,30 @@
 </footer>
 
 <script>
-  const burger = document.querySelector('.burger');
-  const menu = document.querySelector('.menu');
+const burger = document.querySelector('.burger');
+const menu = document.querySelector('.menu');
+const menuLinks = document.querySelectorAll('.menu a');
 
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('active');
-    menu.classList.toggle('open');
+burger.addEventListener('click', () => {
+  burger.classList.toggle('active');
+  menu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', burger.classList.contains('active'));
+});
 
-    burger.setAttribute(
-      'aria-expanded',
-      burger.classList.contains('active')
-    );
+// fermeture menu quand on clique sur un lien
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if(menu.classList.contains('open')){
+      menu.classList.remove('open');
+      burger.classList.remove('active');
+      burger.setAttribute('aria-expanded', false);
+    }
   });
+});
 </script>
 
 </body>
 </html>
+
 
 

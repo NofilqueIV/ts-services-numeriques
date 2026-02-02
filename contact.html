@@ -41,19 +41,22 @@
 <main>
 <section class="form-section" aria-labelledby="contact-title">
   <h2 id="contact-title">Commande d’un service</h2>
-  <form action="mailto:ts.services.numeriques@gmail.com" method="post" enctype="text/plain">
-    <input type="text" name="nom" placeholder="Votre nom" required>
-    <input type="email" name="email" placeholder="Votre email" required>
-    <select name="service" required>
-      <option value="">Choisissez un service</option>
-      <option value="Depannage PC">Dépannage PC</option>
-      <option value="Installation Windows">Installation Windows</option>
-      <option value="Site Web">Création Site Web</option>
-      <option value="Support Pro">Support Pro</option>
-    </select>
-    <textarea name="details" rows="5" placeholder="Détails supplémentaires" required></textarea>
-    <input type="submit" value="Envoyer ma demande" class="btn-gold">
-  </form>
+ <form action="send.php" method="post">
+  <input type="text" name="nom" placeholder="Votre nom" required>
+  <input type="email" name="email" placeholder="Votre email" required>
+
+  <select name="service" required>
+    <option value="">Choisissez un service</option>
+    <option value="Dépannage PC">Dépannage PC</option>
+    <option value="Installation Windows">Installation Windows</option>
+    <option value="Création Site Web">Création Site Web</option>
+    <option value="Support Pro">Support Pro</option>
+  </select>
+
+  <textarea name="details" rows="5" placeholder="Détails supplémentaires" required></textarea>
+
+  <input type="submit" value="Envoyer ma demande" class="btn-gold">
+</form>
 </section>
 
 <section class="map-section" aria-labelledby="zone-title">
@@ -101,6 +104,7 @@ window.addEventListener('resize', setViewportHeight);
 
 </body>
 </html>
+
 
 
 

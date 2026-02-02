@@ -11,47 +11,47 @@
 <body>
 
 <header>
-  <nav>
-    <div class="nav-container">
-      <img src="logo.png" alt="TS Services Numériques" class="logo" loading="lazy">
+<nav>
+  <div class="nav-container">
+    <img src="logo.png" alt="TS Services Numériques" class="logo" loading="lazy">
 
-      <!-- bouton burger -->
-      <button class="burger" aria-label="Menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+    <!-- bouton burger -->
+    <button class="burger" aria-label="Menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-      <ul class="menu">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="particuliers.html">Particuliers</a></li>
-        <li><a href="professionnels.html">Professionnels</a></li>
-        <li><a href="pourquoi.html">Pourquoi nous</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+    <ul class="menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="particuliers.html">Particuliers</a></li>
+      <li><a href="professionnels.html">Professionnels</a></li>
+      <li><a href="pourquoi.html">Pourquoi nous</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-  <section class="hero">
-    <h1>Agence informatique & solutions numériques</h1>
-    <p>Développement web, maintenance et expertise IT au Havre</p>
-  </section>
+<section class="hero">
+  <h1>Agence informatique & solutions numériques</h1>
+  <p>Développement web, maintenance et expertise IT au Havre</p>
+</section>
 </header>
 
 <main>
-  <section class="services" aria-labelledby="services-title">
-    <h2 id="services-title">Nos expertises</h2>
-    <div class="cards">
-      <article class="card">Dépannage informatique</article>
-      <article class="card">Création de sites web</article>
-      <article class="card">Maintenance & sécurité</article>
-      <article class="card">Assistance numérique</article>
-    </div>
-  </section>
-
-  <div class="btn-container">
-    <a href="contact.html" class="btn-gold">Commander un service</a>
+<section class="services" aria-labelledby="services-title">
+  <h2 id="services-title">Nos expertises</h2>
+  <div class="cards">
+    <article class="card">Dépannage informatique</article>
+    <article class="card">Création de sites web</article>
+    <article class="card">Maintenance & sécurité</article>
+    <article class="card">Assistance numérique</article>
   </div>
+</section>
+
+<div class="btn-container">
+  <a href="contact.html" class="btn-gold">Commander un service</a>
+</div>
 </main>
 
 <footer>
@@ -61,6 +61,7 @@
 </footer>
 
 <script>
+/* ==================== MENU BURGER ==================== */
 const burger = document.querySelector('.burger');
 const menu = document.querySelector('.menu');
 const menuLinks = document.querySelectorAll('.menu a');
@@ -81,6 +82,16 @@ menuLinks.forEach(link => {
     }
   });
 });
+
+/* ==================== HAUTEUR MOBILE ==================== */
+function setViewportHeight() {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+// exécuter au chargement et au resize
+setViewportHeight();
+window.addEventListener('resize', setViewportHeight);
 </script>
 
 </body>

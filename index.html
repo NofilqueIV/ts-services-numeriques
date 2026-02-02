@@ -5,17 +5,14 @@
 <title>TS Services Numériques – Agence IT</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Agence informatique au Havre : développement web, maintenance, dépannage et solutions numériques professionnelles.">
-
 <link rel="stylesheet" href="css/index.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
 <header>
 <nav>
   <div class="nav-container">
-
     <img src="logo.png" alt="TS Services Numériques" class="logo" loading="lazy">
 
     <!-- bouton burger -->
@@ -32,7 +29,6 @@
       <li><a href="pourquoi.html">Pourquoi nous</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-
   </div>
 </nav>
 
@@ -43,22 +39,19 @@
 </header>
 
 <main>
-
-  <section class="services" aria-labelledby="services-title">
-    <h2 id="services-title">Nos expertises</h2>
-
-    <div class="cards">
-      <article class="card">Dépannage informatique</article>
-      <article class="card">Création de sites web</article>
-      <article class="card">Maintenance & sécurité</article>
-      <article class="card">Assistance numérique</article>
-    </div>
-  </section>
-
-  <div class="btn-container">
-    <a href="contact.html" class="btn-gold">Commander un service</a>
+<section class="services" aria-labelledby="services-title">
+  <h2 id="services-title">Nos expertises</h2>
+  <div class="cards">
+    <article class="card">Dépannage informatique</article>
+    <article class="card">Création de sites web</article>
+    <article class="card">Maintenance & sécurité</article>
+    <article class="card">Assistance numérique</article>
   </div>
+</section>
 
+<div class="btn-container">
+  <a href="contact.html" class="btn-gold">Commander un service</a>
+</div>
 </main>
 
 <footer>
@@ -77,7 +70,6 @@ burger.addEventListener('click', () => {
   burger.setAttribute('aria-expanded', burger.classList.contains('active'));
 });
 
-// fermeture menu quand on clique sur un lien
 menuLinks.forEach(link => {
   link.addEventListener('click', () => {
     if(menu.classList.contains('open')){
@@ -91,6 +83,3 @@ menuLinks.forEach(link => {
 
 </body>
 </html>
-
-
-

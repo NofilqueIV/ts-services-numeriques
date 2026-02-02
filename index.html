@@ -70,6 +70,7 @@ burger.addEventListener('click', () => {
   burger.setAttribute('aria-expanded', burger.classList.contains('active'));
 });
 
+// fermer le menu quand on clique sur un lien
 menuLinks.forEach(link => {
   link.addEventListener('click', () => {
     if(menu.classList.contains('open')){

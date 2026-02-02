@@ -1,24 +1,20 @@
-/* ===================== */
-/* BASE */
-/* ===================== */
-* {
+/* ===== BODY & HTML ===== */
+html, body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-  min-height: 100vh;
+  min-height: 100svh; /* corrige le blanc mobile */
   display: flex;
   flex-direction: column;
   background: linear-gradient(135deg,#0f172a,#020617);
   color: #e5e7eb;
 }
 
-/* ===================== */
-/* NAVBAR */
-/* ===================== */
+/* ===== NAVBAR ===== */
 nav {
   position: fixed;
   top: 0;
@@ -41,7 +37,7 @@ nav {
   width: 80px;
 }
 
-/* MENU */
+/* MENU DESKTOP */
 .menu {
   list-style: none;
   display: flex;
@@ -62,9 +58,7 @@ nav {
   color: #38bdf8;
 }
 
-/* ===================== */
-/* BURGER */
-/* ===================== */
+/* ===== BURGER ===== */
 .burger {
   display: none;
   flex-direction: column;
@@ -72,6 +66,7 @@ nav {
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 200;
 }
 
 .burger span {
@@ -93,9 +88,7 @@ nav {
   transform: rotate(-45deg) translate(6px,-6px);
 }
 
-/* ===================== */
-/* HERO */
-/* ===================== */
+/* ===== HERO ===== */
 .hero {
   text-align: center;
   padding: 180px 20px 80px;
@@ -113,9 +106,7 @@ nav {
   color: #cbd5f5;
 }
 
-/* ===================== */
-/* MAIN */
-/* ===================== */
+/* ===== MAIN ===== */
 main {
   max-width: 1200px;
   margin: auto;
@@ -129,9 +120,7 @@ section h2 {
   letter-spacing: 0.5px;
 }
 
-/* ===================== */
-/* SERVICES */
-/* ===================== */
+/* ===== SERVICES ===== */
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -148,17 +137,23 @@ section h2 {
   border: 1px solid rgba(56,189,248,0.15);
   backdrop-filter: blur(6px);
   font-weight: 500;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: reveal 0.8s ease forwards;
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
+.card:nth-child(1){animation-delay:0.2s;}
+.card:nth-child(2){animation-delay:0.4s;}
+.card:nth-child(3){animation-delay:0.6s;}
+.card:nth-child(4){animation-delay:0.8s;}
 
 .card:hover {
   transform: translateY(-8px);
   box-shadow: 0 10px 25px rgba(56,189,248,0.25);
 }
 
-/* ===================== */
-/* BOUTON */
-/* ===================== */
+/* ===== BOUTON ===== */
 .btn-container {
   display: flex;
   justify-content: center;
@@ -180,9 +175,7 @@ section h2 {
   box-shadow: 0 10px 25px rgba(56,189,248,0.35);
 }
 
-/* ===================== */
-/* FOOTER */
-/* ===================== */
+/* ===== FOOTER ===== */
 footer {
   margin-top: auto;
   padding: 30px 20px;
@@ -192,51 +185,44 @@ footer {
   color: #9ca3af;
 }
 
-/* ===================== */
-/* RESPONSIVE */
-/* ===================== */
+/* ===== ANIMATIONS ===== */
+@keyframes reveal {
+  to {opacity:1; transform:translateY(0);}
+}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  .card {
-    width: 45%;
-  }
+  .card { width: 45%; }
 }
 
 @media (max-width: 600px) {
 
-  .burger {
-    display: flex;
-  }
+  /* burger visible */
+  .burger { display: flex; }
 
+  /* menu déroulant sous header */
   .menu {
-    position: fixed;
-    inset: 0;
-    background: rgba(2,6,23,0.98);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(2,6,23,0.95);
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 25px;
-    transform: translateX(100%);
-    transition: transform 0.4s ease;
+    gap: 20px;
+    padding: 15px 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
   }
 
-  .menu.open {
-    transform: translateX(0);
-  }
+  .menu.open { max-height: 400px; }
 
-  .menu a {
-    font-size: 1.3rem;
-  }
+  .menu a { font-size: 1.3rem; }
 
-  .hero h1 {
-    font-size: 1.8rem;
-  }
+  .hero h1 { font-size: 1.8rem; }
 
-  .card {
-    width: 90%;
-  }
+  .card { width: 90%; }
 
-  .btn-gold {
-    width: 90%;
-    text-align: center;
-  }
+  .btn-gold { width: 90%; text-align: center; }
 }

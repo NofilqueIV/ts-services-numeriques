@@ -16,7 +16,7 @@ body {
   font-family: 'Poppins', sans-serif;
   display: flex;
   flex-direction: column;
-  min-height: calc(var(--vh, 1vh) * 100);
+  min-height: 100vh; /* Footer collé en bas */
   background: linear-gradient(135deg,#0f172a,#020617);
   color: #e5e7eb;
 }
@@ -118,7 +118,7 @@ main {
   max-width:1200px;
   margin:auto;
   padding:40px 20px;
-  min-height: calc(var(--vh,1vh) * 100 - 260px);
+  flex:1; /* prend tout l’espace restant pour coller footer */
 }
 
 section h2 {
@@ -162,6 +162,42 @@ section h2 {
   box-shadow:0 10px 25px rgba(56,189,248,0.25);
 }
 
+/* ================== FORMULAIRE ================== */
+form {
+  display:flex;
+  flex-direction:column;
+  max-width:600px;
+  margin:40px auto;
+}
+
+form input, form textarea, form select {
+  margin-bottom:15px;
+  padding:12px;
+  border-radius:8px;
+  border:none;
+  font-size:1rem;
+  background: rgba(15,23,42,0.7);
+  color: #e5e7eb;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: #cbd5f5;
+}
+
+form input[type="submit"] {
+  cursor:pointer;
+  background:linear-gradient(135deg,#2563eb,#38bdf8);
+  color:#020617;
+  font-weight:600;
+  transition:0.3s;
+}
+
+form input[type="submit"]:hover {
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(56,189,248,0.35);
+}
+
 /* ================== BOUTON ================== */
 .btn-container {
   display:flex;
@@ -184,38 +220,8 @@ section h2 {
   box-shadow:0 10px 25px rgba(56,189,248,0.35);
 }
 
-/* ================== FORMULAIRE ================== */
-form {
-  display:flex;
-  flex-direction:column;
-  max-width:600px;
-  margin:40px auto;
-}
-
-form input, form textarea, form select {
-  margin-bottom:15px;
-  padding:12px;
-  border-radius:8px;
-  border:none;
-  font-size:1rem;
-}
-
-form input[type="submit"] {
-  cursor:pointer;
-  background:linear-gradient(135deg,#2563eb,#38bdf8);
-  color:#020617;
-  font-weight:600;
-  transition:0.3s;
-}
-
-form input[type="submit"]:hover {
-  transform:translateY(-3px);
-  box-shadow:0 10px 25px rgba(56,189,248,0.35);
-}
-
 /* ================== FOOTER ================== */
 footer {
-  margin-top:auto;
   padding:30px 20px;
   text-align:center;
   background:#020617;
@@ -236,8 +242,10 @@ footer {
 }
 
 @media(max-width:600px){
+
   .burger { display:flex; }
 
+  /* menu mobile */
   .menu {
     position: fixed;
     top: 0;
@@ -262,13 +270,8 @@ footer {
     pointer-events:auto;
   }
 
-  .menu a {
-    font-size:1.3rem;
-  }
-
+  .menu a { font-size:1.3rem; }
   .hero h1 { font-size:1.8rem; }
   .card { width:90%; }
   .btn-gold { width:90%; text-align:center; }
 }
-
-

@@ -2,65 +2,107 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>TS Services Numériques – LH | Particuliers</title>
+<title>TS Services Numériques – Particuliers</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/particuliers.css">
+<meta name="description" content="Prestations informatiques pour particuliers au Havre : dépannage, installation et assistance personnalisée.">
+<link rel="stylesheet" href="css/index.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
 <nav>
-<div class="nav-container">
-  <img src="logo.png" class="logo" alt="TS Logo">
-  <ul class="menu">
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="particuliers.html">Particuliers</a></li>
-    <li><a href="professionnels.html">Professionnels</a></li>
-    <li><a href="pourquoi.html">Pourquoi nous</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</div>
+  <div class="nav-container">
+    <img src="logo.png" alt="TS Services Numériques" class="logo" loading="lazy">
+
+    <!-- bouton burger -->
+    <button class="burger" aria-label="Menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="particuliers.html">Particuliers</a></li>
+      <li><a href="professionnels.html">Professionnels</a></li>
+      <li><a href="pourquoi.html">Pourquoi nous</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
-<div class="hero">
-  <h1>TS Services Numériques – LH</h1>
-  <p>Votre informatique entre de bonnes mains au Havre</p>
-</div>
+<section class="hero">
+  <h1>Prestations pour particuliers</h1>
+  <p>Dépannage, installation et assistance informatique au Havre</p>
+</section>
 </header>
 
 <main>
-<section class="services">
-<h2>Nos prestations</h2>
-<div class="cards">
-  <div class="card">Dépannage informatique à domicile</div>
-  <div class="card">Réinstallation Windows / macOS</div>
-  <div class="card">Nettoyage virus / optimisation PC</div>
-  <div class="card">Installation ordinateur neuf</div>
-  <div class="card">Assistance numérique personnalisée</div>
-</div>
+<section class="services" aria-labelledby="services-title">
+  <h2 id="services-title">Nos prestations</h2>
+  <div class="cards">
+    <div class="card">Dépannage informatique à domicile</div>
+    <div class="card">Réinstallation Windows / macOS</div>
+    <div class="card">Nettoyage virus / optimisation PC</div>
+    <div class="card">Installation ordinateur neuf</div>
+    <div class="card">Assistance numérique personnalisée</div>
+  </div>
 </section>
 
-<section class="pricing">
-<h2>Tarifs</h2>
-<div class="cards">
-  <div class="card">Dépannage : <span>35€/h</span></div>
-  <div class="card">Installation : <span>50€</span></div>
-  <div class="card">Assistance personnalisée : <span>30€/h</span></div>
-</div>
+<section class="pricing" aria-labelledby="pricing-title">
+  <h2 id="pricing-title">Tarifs</h2>
+  <div class="cards">
+    <div class="card">Dépannage : <span>35€/h</span></div>
+    <div class="card">Installation : <span>50€</span></div>
+    <div class="card">Assistance personnalisée : <span>30€/h</span></div>
+  </div>
 </section>
 
-<section class="cta">
-<h2>Besoin d'aide ?</h2>
-<div class="btn-container">
-  <a href="contact.html" class="btn-gold">Commander un service</a>
-</div>
+<section class="cta" aria-labelledby="cta-title">
+  <h2 id="cta-title">Besoin d'aide ?</h2>
+  <div class="btn-container">
+    <a href="contact.html" class="btn-gold">Commander un service</a>
+  </div>
 </section>
 </main>
 
 <footer>
-<p>📍 Le Havre</p>
-<p>📧 ts.services.numeriques@gmail.com</p>
+  <p>📍 Le Havre</p>
+  <p>📧 contact@ts-services-numeriques.fr</p>
 </footer>
+
+<script>
+/* ==================== MENU BURGER ==================== */
+const burger = document.querySelector('.burger');
+const menu = document.querySelector('.menu');
+const menuLinks = document.querySelectorAll('.menu a');
+
+burger.addEventListener('click', () => {
+  burger.classList.toggle('active');
+  menu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', burger.classList.contains('active'));
+});
+
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if(menu.classList.contains('open')){
+      menu.classList.remove('open');
+      burger.classList.remove('active');
+      burger.setAttribute('aria-expanded', false);
+    }
+  });
+});
+
+/* ==================== HAUTEUR MOBILE ==================== */
+function setViewportHeight() {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+setViewportHeight();
+window.addEventListener('resize', setViewportHeight);
+</script>
 
 </body>
 </html>
